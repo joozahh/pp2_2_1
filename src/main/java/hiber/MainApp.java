@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class MainApp {
-   public static void main(String[] args) throws SQLException {
+   public static void main(String[] args) {
       AnnotationConfigApplicationContext context =
               new AnnotationConfigApplicationContext(AppConfig.class);
 
@@ -18,23 +18,29 @@ public class MainApp {
 
       User user1 = new User("Алеша", "Алкаш", "aaa)");
       Car car = new Car("Audi", 1);
+      userService.add(car);
       user1.setCar(car);
       userService.add(user1);
-      System.out.println("1");
 
       User user2 = new User("балбес", "баранович", "bbb)");
-      user2.setCar(new Car("Bently", 2));
-      System.out.println("2");
+      car.setModel("Bently");
+      car.setSeries(2);
+      userService.add(car);
+      user2.setCar(car);
       userService.add(user2);
 
-      System.out.println("3");
       User user3 = new User("Стас", "сосало", "ccc)");
-      user3.setCar(new Car("Chevrolet", 3));
+      car.setModel("Chevrolet");
+      car.setSeries(3);
+      userService.add(car);
+      user3.setCar(car);
       userService.add(user3);
 
-      System.out.println("4");
       User user4 = new User("Даниил", "денис", "ddd)");
-      user4.setCar(new Car("Dodge", 4));
+      car.setModel("Dodge");
+      car.setSeries(4);
+      userService.add(car);
+      user4.setCar(car);
       userService.add(user4);
 
       User oldUser = userService.getUserByCar("Chevrolet",3);
@@ -42,16 +48,11 @@ public class MainApp {
 
       List<User> users = userService.getListUsers();
       for (User user : users) {
-         System.out.println("Id = "+user.getId());
-         System.out.println("First Name = "+user.getFirstName());
-         System.out.println("Last Name = "+user.getLastName());
-         System.out.println("Email = "+user.getEmail());
-         if (user.getCar()!=null){
-            System.out.println("Car Id = " + user.getCar().getId());
-            System.out.println("Car model = " + user.getCar().getModel());
-            System.out.println("Car series = " + user.getCar().getSeries());
+         System.out.print("Id = " + user.getId() +
+                 " First Name = " + user.getFirstName() + " Last Name = " + user.getLastName() + " Email = " + user.getEmail());
+         if (user.getCar() != null) {
+            System.out.print(" Car Id = " + car.getId() + " Car model = " + car.getModel() + " Car series = " + car.getSeries() + "\n");
          }
-         System.out.println();
       }
       context.close();
    }
