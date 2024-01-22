@@ -74,11 +74,21 @@ public class User {
 
    @Override
    public String toString() {
-      return "User{" +
-              "id=" + id +
-              ", firstName='" + firstName + '\'' +
-              ", lastName='" + lastName + '\'' +
-              ", email='" + email + '\'' +
-              '}';
+      if (this.getCar() != null) {
+         return "User{" +
+                 "id=" + id +
+                 ", firstName='" + firstName + '\'' +
+                 ", lastName='" + lastName + '\'' +
+                 ", email='" + email + '\'' +
+                 ", car=" + car +
+                 '}';
+      } else {
+         return "User{" +
+                 "id=" + id +
+                 ", firstName='" + firstName + '\'' +
+                 ", lastName='" + lastName + '\'' +
+                 ", email='" + email + '\'' +
+                 '}';
+      }
    }
 }

@@ -46,12 +46,7 @@ public class MainApp {
       System.out.println(oldUser.getFirstName());
 
       List<User> users = userService.getListUsers();
-      for (User user : users) {
-         System.out.print(user.toString() + " пр");
-         if (user.getCar() != null) {
-            System.out.print(user.getCar().toString() + "\n");
-         }
-      }
+      users.forEach(System.out::println);
       context.close();
    }
 }
