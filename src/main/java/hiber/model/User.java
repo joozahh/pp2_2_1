@@ -32,7 +32,8 @@ public class User {
       this.car = car;
    }
 
-   public User() {}
+   public User() {
+   }
 
    public User(String firstName, String lastName, String email) {
       this.firstName = firstName;
@@ -74,21 +75,11 @@ public class User {
 
    @Override
    public String toString() {
-      if (this.getCar() != null) {
-         return "User{" +
-                 "id=" + id +
-                 ", firstName='" + firstName + '\'' +
-                 ", lastName='" + lastName + '\'' +
-                 ", email='" + email + '\'' +
-                 ", car=" + car +
-                 '}';
-      } else {
-         return "User{" +
-                 "id=" + id +
-                 ", firstName='" + firstName + '\'' +
-                 ", lastName='" + lastName + '\'' +
-                 ", email='" + email + '\'' +
-                 '}';
-      }
+      return "User{" +
+              "id=" + id +
+              ", firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              '}';
    }
 }
